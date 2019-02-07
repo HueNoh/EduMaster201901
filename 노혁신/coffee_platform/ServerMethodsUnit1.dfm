@@ -54,7 +54,7 @@ object ServerMethods1: TServerMethods1
     SQL.Strings = (
       'SELECT COUNT(BIZ_CODE) AS DUPCNT FROM TB_BIZ'
       'WHERE BIZ_NUM = :BIZ_NUM')
-    Left = 296
+    Left = 384
     Top = 16
     ParamData = <
       item
@@ -86,21 +86,15 @@ object ServerMethods1: TServerMethods1
         DataType = ftString
         ParamType = ptInput
         Size = 12
-        Value = '444-44-44444'
+        Value = Null
       end
       item
         Name = 'PW'
         DataType = ftString
         ParamType = ptInput
         Size = 30
-        Value = '444'
+        Value = Null
       end>
-    object SignInQueryBIZ_CODE: TIntegerField
-      FieldName = 'BIZ_CODE'
-      Origin = 'BIZ_CODE'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
   end
   object BizInfoQuery: TFDQuery
     Connection = FDConnection1
@@ -129,14 +123,10 @@ object ServerMethods1: TServerMethods1
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
-      
-        'Database=C:\workspace\delphi_project\coffee_platForm_git\'#45432#54785#49888'\cof' +
-        'fee_platform\DB\COFFEE.IB'
-      'User_Name=SYSDBA'
-      'Password=masterkey'
       'CharacterSet=UTF8'
-      'DriverID=IB')
+      'ConnectionDef=Coffee')
     Connected = True
+    LoginPrompt = False
     Left = 40
     Top = 24
   end
@@ -153,7 +143,7 @@ object ServerMethods1: TServerMethods1
         Name = 'BIZ_CODE'
         DataType = ftString
         ParamType = ptInput
-        Value = '1'
+        Value = Null
       end>
   end
   object NotifyQueryProvider: TDataSetProvider
@@ -180,6 +170,75 @@ object ServerMethods1: TServerMethods1
       end
       item
         Name = 'CONTENT'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object SalesQuery: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT * FROM TB_SALES'
+      'WHERE BIZ_CODE = :BIZ_CODE')
+    Left = 128
+    Top = 304
+    ParamData = <
+      item
+        Name = 'BIZ_CODE'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+  end
+  object SignUpQuery3: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'INSERT INTO TB_SALES (BIZ_CODE, COUPON) '
+      'VALUES (GEN_ID(BIZ_CODE_GEN, 0), 0);')
+    Left = 288
+    Top = 16
+  end
+  object SalesQueryProvider: TDataSetProvider
+    DataSet = SalesQuery
+    Left = 208
+    Top = 304
+  end
+  object SignUpClientQuery: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'INSERT INTO TB_USER (USR_MAIL, PW) '
+      'VALUES (:USR_MAIL, :PW);'
+      ''
+      ''
+      ''
+      '')
+    Left = 128
+    Top = 408
+    ParamData = <
+      item
+        Name = 'USR_MAIL'
+        ParamType = ptInput
+      end
+      item
+        Name = 'PW'
+        ParamType = ptInput
+      end>
+  end
+  object SignInClientQuery: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT USR_CODE FROM TB_USER'
+      'WHERE USR_MAIL = :USR_MAIL AND PW = :PW')
+    Left = 208
+    Top = 408
+    ParamData = <
+      item
+        Name = 'USR_MAIL'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'PW'
         DataType = ftString
         ParamType = ptInput
         Value = Null

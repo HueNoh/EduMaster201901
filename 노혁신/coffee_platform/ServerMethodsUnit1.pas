@@ -24,11 +24,15 @@ type
     BizInfoQuery: TFDQuery;
     SignInQueryProvider: TDataSetProvider;
     BizInfoQueryProvider: TDataSetProvider;
-    SignInQueryBIZ_CODE: TIntegerField;
     FDConnection1: TFDConnection;
     NotifyQuery: TFDQuery;
     NotifyQueryProvider: TDataSetProvider;
     NotifyInsQuery: TFDQuery;
+    SalesQuery: TFDQuery;
+    SignUpQuery3: TFDQuery;
+    SalesQueryProvider: TDataSetProvider;
+    SignUpClientQuery: TFDQuery;
+    SignInClientQuery: TFDQuery;
   private
     { Private declarations }
   public
@@ -36,11 +40,12 @@ type
     function EchoString(Value: string): string;
     function ReverseString(Value: string): string;
     function DupChk(ABizNum: string): Integer; // 중복체크: Return > 0 then 중복
-    function SignUp(ABizNum, APw, AName, AAddr: string): Boolean; // 회원 가입
+    function SignUp(ABizNum, APw, AName, AAddr: string): Boolean; // 사업자 등록
     function SignIn(ABizNum, APw: string): Integer; // 로그인
     function InsertNotify(ABizCode: Integer; AContent: string): Boolean;
-//    function DeleteNotify(ABizCode: Integer): Boolean;
-//    listview1.deleteselected
+
+    function SignUpClient(AUsrMail, APw: string): Boolean; // 사용자 등록
+    function SignInClient(AUsrMail, APw: string): Integer;
 
   end;
 
@@ -79,14 +84,14 @@ begin
 end;
 
 function TServerMethods1.SignIn(ABizNum, APw: string): Integer;
-  var
-    BizCode: Integer;
+var
+  BizCode: Integer;
 begin
   SignInQuery.Close;
   SignInQuery.Params[0].AsString := ABizNum;
   SignInQuery.Params[1].AsString := APw;
   SignInQuery.Open;
-  // -999: 미등록, -998: 중복
+  // -999: 불일치, BizCode Return, -998: 중복
   if SignInQuery.RecordCount = 0 then
     Result := -999
   else if SignInQuery.RecordCount = 1 then
@@ -95,33 +100,71 @@ begin
     Result := BizCode;
   end
   else
-    Result := -998;
+    Result := -998;   //Unique(Biz_num) 제약조건 추가로 필요 없음
 //    raise Exception.Create('로그인데이터 중복값 있는지 확인');
-// 이곳에 예외처리 하면 받을 곳이 없음
+end;
+
+function TServerMethods1.SignInClient(AUsrMail, APw: string): Integer;
+var
+  UsrCode: Integer;
+begin
+  SignInClientQuery.Close;
+  SignInClientQuery.Params[0].AsString := AUsrMail;
+  SignInClientQuery.Params[1].AsString := APw;
+  SignInClientQuery.Open;
+  // -999: 불일치, UsrCode Return, -998 예외
+  if SignInClientQuery.RecordCount = 0 then
+    Result := -999
+  else if SignInClientQuery.RecordCount = 1 then
+  begin
+    UsrCode := SignInClientQuery.FieldByName('USR_CODE').AsInteger;
+    Result := UsrCode;
+  end
+  else
+    Result := -998;
+
 end;
 
 function TServerMethods1.SignUp(ABizNum, APw, AName, AAddr: string): Boolean;
 begin
-  Result := False;
-  SignUpQuery.Close;
-  SignUpQuery2.Close;
-
+  SignUpQuery.Close;  //사업자가입정보
+  SignUpQuery2.Close; //매장정보
+  SignUpQuery3.Close; //예약판매정보
   SignUpQuery.Params[0].AsString := ABizNum;
   SignUpQuery.Params[1].AsString := APw;
   SignUpQuery.Params[2].AsString := AName;
   SignUpQuery.Params[3].AsString := AAddr;
-
+  // Tb_Biz, Tb_Biz_Info 트랜잭션 성공/실패
   FDConnection1.StartTransaction;
   try
     SignUpQuery.ExecSQL;
     SignUpQuery2.ExecSQL;
+    SignUpQuery3.ExecSQL;
     FDConnection1.Commit;
     Result := True;
   except
     FDConnection1.Rollback;
-    raise;    //???
+    Result := False;
   end;
 
+end;
+
+function TServerMethods1.SignUpClient(AUsrMail, APw: string): Boolean;
+begin
+  SignUpClientQuery.Close;  //사용자 등록
+
+  SignUpClientQuery.Params[0].AsString := AUsrMail;
+  SignUpClientQuery.Params[1].AsString := APw;
+  // 트랜잭션 시작
+  FDConnection1.StartTransaction;
+  try
+    SignUpClientQuery.ExecSQL;
+    FDConnection1.Commit;
+    Result := True;
+  except
+    FDConnection1.Rollback;
+    Result := False;
+  end;
 end;
 
 function TServerMethods1.DupChk(ABizNum: string): Integer;

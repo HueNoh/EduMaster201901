@@ -2,7 +2,7 @@ object FrmAdmin: TFrmAdmin
   Left = 0
   Top = 0
   ClientHeight = 643
-  ClientWidth = 417
+  ClientWidth = 419
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -11,39 +11,39 @@ object FrmAdmin: TFrmAdmin
   DesignerMasterStyle = 0
   object Layout1: TLayout
     Align = Client
-    Size.Width = 417.000000000000000000
+    Size.Width = 419.000000000000000000
     Size.Height = 643.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object TabControl1: TTabControl
       Align = Client
-      Size.Width = 417.000000000000000000
+      Size.Width = 419.000000000000000000
       Size.Height = 603.000000000000000000
       Size.PlatformDefault = False
-      TabIndex = 0
+      TabIndex = 2
       TabOrder = 3
       TabPosition = Bottom
       OnChange = TabControl1Change
       Sizes = (
-        417s
+        419s
         577s
-        417s
+        419s
         577s
-        417s
+        419s
         577s
-        417s
+        419s
         577s)
       object TabItem1: TTabItem
         CustomIcon = <
           item
           end>
-        IsSelected = True
-        Size.Width = 61.000000000000000000
+        IsSelected = False
+        Size.Width = 68.000000000000000000
         Size.Height = 26.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'RegInfo'
+        Text = #47588#51109#51221#48372
         ExplicitSize.cx = 61.000000000000000000
         ExplicitSize.cy = 26.000000000000000000
         object GroupBox1: TGroupBox
@@ -54,7 +54,7 @@ object FrmAdmin: TFrmAdmin
           Size.PlatformDefault = False
           Text = #47588#51109#49548#44060
           TabOrder = 1
-          object Memo_Intro: TMemo
+          object MemoIntro: TMemo
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             DataDetectorTypes = []
             Position.X = 8.000000000000000000
@@ -69,13 +69,13 @@ object FrmAdmin: TFrmAdmin
         end
         object GroupBox2: TGroupBox
           Position.X = 48.000000000000000000
-          Position.Y = 152.000000000000000000
+          Position.Y = 128.000000000000000000
           Size.Width = 337.000000000000000000
           Size.Height = 185.000000000000000000
           Size.PlatformDefault = False
           Text = #49884#44536#45768#52376' '#49345#54408' '#51060#48120#51648' '#48143' '#49548#44060
           TabOrder = 0
-          object Memo_Sig: TMemo
+          object MemoSig: TMemo
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             DataDetectorTypes = []
             Position.X = 168.000000000000000000
@@ -87,7 +87,7 @@ object FrmAdmin: TFrmAdmin
             Viewport.Width = 157.000000000000000000
             Viewport.Height = 149.000000000000000000
           end
-          object ImgCtl_Sig: TImageControl
+          object ImgSig: TImageControl
             Position.X = 8.000000000000000000
             Position.Y = 24.000000000000000000
             Size.Width = 153.000000000000000000
@@ -98,13 +98,13 @@ object FrmAdmin: TFrmAdmin
         end
         object GroupBox3: TGroupBox
           Position.X = 48.000000000000000000
-          Position.Y = 352.000000000000000000
+          Position.Y = 312.000000000000000000
           Size.Width = 337.000000000000000000
           Size.Height = 100.000000000000000000
           Size.PlatformDefault = False
           Text = #51060#48120#51648' '#50629#47196#46300
           TabOrder = 2
-          object ImgCtr_1: TImageControl
+          object Img1: TImageControl
             Position.X = 20.000000000000000000
             Position.Y = 32.000000000000000000
             Size.Width = 57.000000000000000000
@@ -112,7 +112,7 @@ object FrmAdmin: TFrmAdmin
             Size.PlatformDefault = False
             TabOrder = 3
           end
-          object ImgCtr_2: TImageControl
+          object Img2: TImageControl
             Position.X = 100.000000000000000000
             Position.Y = 32.000000000000000000
             Size.Width = 57.000000000000000000
@@ -120,7 +120,7 @@ object FrmAdmin: TFrmAdmin
             Size.PlatformDefault = False
             TabOrder = 2
           end
-          object ImgCtr_3: TImageControl
+          object Img3: TImageControl
             Position.X = 180.000000000000000000
             Position.Y = 32.000000000000000000
             Size.Width = 57.000000000000000000
@@ -128,7 +128,7 @@ object FrmAdmin: TFrmAdmin
             Size.PlatformDefault = False
             TabOrder = 1
           end
-          object ImgCtr_4: TImageControl
+          object Img4: TImageControl
             Position.X = 260.000000000000000000
             Position.Y = 32.000000000000000000
             Size.Width = 57.000000000000000000
@@ -139,13 +139,14 @@ object FrmAdmin: TFrmAdmin
         end
         object GroupBox4: TGroupBox
           Position.X = 48.000000000000000000
-          Position.Y = 456.000000000000000000
+          Position.Y = 464.000000000000000000
           Size.Width = 337.000000000000000000
           Size.Height = 81.000000000000000000
           Size.PlatformDefault = False
           Text = #54200#51032#49884#49444
           TabOrder = 3
           object SpeedButton1: TSpeedButton
+            StaysPressed = True
             Position.X = 16.000000000000000000
             Position.Y = 32.000000000000000000
             Size.Width = 49.000000000000000000
@@ -154,6 +155,7 @@ object FrmAdmin: TFrmAdmin
             Text = 'wifi'
           end
           object SpeedButton2: TSpeedButton
+            StaysPressed = True
             Position.X = 80.000000000000000000
             Position.Y = 32.000000000000000000
             Size.Width = 49.000000000000000000
@@ -164,9 +166,53 @@ object FrmAdmin: TFrmAdmin
         end
         object Btn_Save: TButton
           Position.X = 296.000000000000000000
-          Position.Y = 544.000000000000000000
+          Position.Y = 552.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
           TabOrder = 4
           Text = #51200#51109
+          OnClick = Btn_SaveClick
+        end
+        object Label2: TLabel
+          Position.X = 288.000000000000000000
+          Position.Y = 8.000000000000000000
+          TabOrder = 5
+        end
+        object GroupBox8: TGroupBox
+          Position.X = 48.000000000000000000
+          Position.Y = 421.000000000000000000
+          Size.Width = 337.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          Text = #53216#54256' '#48156#49373' '#49444#51221
+          TabOrder = 6
+          object Label6: TLabel
+            Position.X = 216.000000000000000000
+            Position.Y = 16.000000000000000000
+            Size.Width = 89.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = #44060' '#45817' '#47924#47308' 1'#51092
+            TabOrder = 0
+          end
+          object ComboCpn: TComboEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            TabOrder = 1
+            ItemHeight = 19.000000000000000000
+            Items.Strings = (
+              '0'
+              '5'
+              '6'
+              '7'
+              '8'
+              '9'
+              '10')
+            ItemIndex = -1
+            Position.X = 104.000000000000000000
+            Position.Y = 13.000000000000000000
+            OnChange = ComboCpnChange
+          end
         end
       end
       object TabItem2: TTabItem
@@ -174,18 +220,18 @@ object FrmAdmin: TFrmAdmin
           item
           end>
         IsSelected = False
-        Size.Width = 53.000000000000000000
+        Size.Width = 44.000000000000000000
         Size.Height = 26.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'Notify'
+        Text = #44277#51648
         ExplicitSize.cx = 53.000000000000000000
         ExplicitSize.cy = 26.000000000000000000
         object Layout3: TLayout
-          Align = Client
-          Size.Width = 417.000000000000000000
-          Size.Height = 577.000000000000000000
+          Align = MostTop
+          Size.Width = 419.000000000000000000
+          Size.Height = 89.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object Btn_Save_Notify: TButton
@@ -207,40 +253,174 @@ object FrmAdmin: TFrmAdmin
             Size.Height = 22.000000000000000000
             Size.PlatformDefault = False
           end
-          object ListView1: TListView
-            ItemAppearanceClassName = 'TListItemAppearance'
-            ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
-            HeaderAppearanceClassName = 'TListHeaderObjects'
-            FooterAppearanceClassName = 'TListHeaderObjects'
-            Position.X = 8.000000000000000000
-            Position.Y = 88.000000000000000000
-            Size.Width = 401.000000000000000000
-            Size.Height = 481.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 2
-            OnClick = ListView1Click
-          end
+        end
+        object ListView1: TListView
+          ItemAppearanceClassName = 'TListItemAppearance'
+          ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+          HeaderAppearanceClassName = 'TListHeaderObjects'
+          FooterAppearanceClassName = 'TListHeaderObjects'
+          Align = Client
+          Size.Width = 419.000000000000000000
+          Size.Height = 488.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnDeleteItem = ListView1DeleteItem
         end
       end
       object TabItem3: TTabItem
         CustomIcon = <
           item
           end>
-        IsSelected = False
-        Size.Width = 55.000000000000000000
+        IsSelected = True
+        Size.Width = 68.000000000000000000
         Size.Height = 26.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'Reserv'
+        Text = #50696#50557#54032#47588
         ExplicitSize.cx = 55.000000000000000000
         ExplicitSize.cy = 26.000000000000000000
         object Layout4: TLayout
           Align = Client
-          Size.Width = 417.000000000000000000
+          Size.Width = 419.000000000000000000
           Size.Height = 577.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
+          object GroupBox6: TGroupBox
+            Position.X = 40.000000000000000000
+            Position.Y = 200.000000000000000000
+            Size.Width = 329.000000000000000000
+            Size.Height = 89.000000000000000000
+            Size.PlatformDefault = False
+            Text = #54032#47588' '#49884#51089' '#49884#44036' '#49444#51221
+            TabOrder = 0
+            object DateRes: TDateEdit
+              Date = 43503.000000000000000000
+              TodayDefault = True
+              Position.X = 48.000000000000000000
+              Position.Y = 32.000000000000000000
+              Size.Width = 97.000000000000000000
+              Size.Height = 33.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+            end
+            object TimeRes: TTimeEdit
+              Time = 0.375000000000000000
+              Position.X = 168.000000000000000000
+              Position.Y = 32.000000000000000000
+              Size.Width = 113.000000000000000000
+              Size.Height = 33.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+            end
+          end
+          object GroupBox7: TGroupBox
+            Position.X = 40.000000000000000000
+            Position.Y = 296.000000000000000000
+            Size.Width = 329.000000000000000000
+            Size.Height = 113.000000000000000000
+            Size.PlatformDefault = False
+            Text = #44032#44201' '#48143' '#49688#47049
+            TabOrder = 1
+            object EditResPrice: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              TabOrder = 1
+              KeyboardType = NumberPad
+              Position.X = 48.000000000000000000
+              Position.Y = 48.000000000000000000
+            end
+            object Label3: TLabel
+              Position.X = 48.000000000000000000
+              Position.Y = 24.000000000000000000
+              Size.Width = 73.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              Text = #45800#50948' '#44032#44201
+              TabOrder = 2
+            end
+            object Label4: TLabel
+              Position.X = 176.000000000000000000
+              Position.Y = 24.000000000000000000
+              Size.Width = 73.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              Text = #49688#47049
+              TabOrder = 3
+            end
+            object Label5: TLabel
+              Position.X = 280.000000000000000000
+              Position.Y = 48.000000000000000000
+              Size.Width = 41.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'g'
+              TabOrder = 4
+            end
+            object ComboResQuantity: TComboEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              TabOrder = 5
+              ItemHeight = 19.000000000000000000
+              Items.Strings = (
+                '0'
+                '500'
+                '1000'
+                '1500'
+                '2000'
+                '2500'
+                '3000')
+              ItemIndex = -1
+              Position.X = 168.000000000000000000
+              Position.Y = 48.000000000000000000
+            end
+          end
+          object Btn_Save_Res: TSpeedButton
+            StaysPressed = True
+            Position.X = 224.000000000000000000
+            Position.Y = 424.000000000000000000
+            Size.Width = 145.000000000000000000
+            Size.Height = 49.000000000000000000
+            Size.PlatformDefault = False
+            Text = #50696#50557' '#54032#47588' '#49884#51089
+            OnClick = Btn_Save_ResClick
+          end
+        end
+        object GroupBox5: TGroupBox
+          Position.X = 40.000000000000000000
+          Position.Y = 24.000000000000000000
+          Size.Width = 329.000000000000000000
+          Size.Height = 161.000000000000000000
+          Size.PlatformDefault = False
+          Text = #50696#50557#54032#47588#49345#54408
+          TabOrder = 1
+          object ImgRes: TImageControl
+            Position.X = 8.000000000000000000
+            Position.Y = 16.000000000000000000
+            Size.Width = 153.000000000000000000
+            Size.Height = 137.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+          end
+          object MemoRes: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            Position.X = 168.000000000000000000
+            Position.Y = 48.000000000000000000
+            Size.Width = 153.000000000000000000
+            Size.Height = 105.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Viewport.Width = 149.000000000000000000
+            Viewport.Height = 101.000000000000000000
+          end
+          object EditRes: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            TabOrder = 3
+            Position.X = 168.000000000000000000
+            Position.Y = 16.000000000000000000
+            Size.Width = 153.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+          end
         end
       end
       object TabItem4: TTabItem
@@ -248,17 +428,17 @@ object FrmAdmin: TFrmAdmin
           item
           end>
         IsSelected = False
-        Size.Width = 37.000000000000000000
+        Size.Width = 68.000000000000000000
         Size.Height = 26.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = ''
         TabOrder = 0
-        Text = 'My'
+        Text = #54924#50896#44288#47532
         ExplicitSize.cx = 37.000000000000000000
         ExplicitSize.cy = 26.000000000000000000
         object Layout5: TLayout
           Align = Client
-          Size.Width = 417.000000000000000000
+          Size.Width = 419.000000000000000000
           Size.Height = 577.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -266,7 +446,7 @@ object FrmAdmin: TFrmAdmin
       end
     end
     object ToolBar1: TToolBar
-      Size.Width = 417.000000000000000000
+      Size.Width = 419.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -285,81 +465,8 @@ object FrmAdmin: TFrmAdmin
     end
   end
   object BindSourceDB1: TBindSourceDB
-    DataSet = DMAdminAccess.NotifyQuery
     ScopeMappings = <>
-    Left = 368
-    Top = 8
-  end
-  object BindingsList1: TBindingsList
-    Methods = <>
-    OutputConverters = <>
-    Left = 28
-    Top = 5
-    object LinkFillControlToField1: TLinkFillControlToField
-      Category = 'Quick Bindings'
-      Control = ListView1
-      Track = True
-      FillDataSource = BindSourceDB1
-      FillDisplayFieldName = 'CONTENT'
-      AutoFill = True
-      FillExpressions = <>
-      FillHeaderExpressions = <>
-      FillBreakGroups = <>
-    end
-    object LinkControlToField1: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB2
-      FieldName = 'CONTENT'
-      Control = Memo_Intro
-      Track = False
-    end
-    object LinkControlToField2: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB2
-      FieldName = 'IMG_1'
-      Control = ImgCtr_1
-      Track = False
-    end
-    object LinkControlToField3: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB2
-      FieldName = 'IMG_2'
-      Control = ImgCtr_2
-      Track = False
-    end
-    object LinkControlToField4: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB2
-      FieldName = 'IMG_3'
-      Control = ImgCtr_3
-      Track = False
-    end
-    object LinkControlToField5: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB2
-      FieldName = 'IMG_4'
-      Control = ImgCtr_4
-      Track = False
-    end
-    object LinkControlToField6: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB2
-      FieldName = 'SIG_IMG'
-      Control = ImgCtl_Sig
-      Track = False
-    end
-    object LinkControlToField7: TLinkControlToField
-      Category = 'Quick Bindings'
-      DataSource = BindSourceDB2
-      FieldName = 'SIG_NAME'
-      Control = Memo_Sig
-      Track = False
-    end
-  end
-  object BindSourceDB2: TBindSourceDB
-    DataSet = DMAdminAccess.BizInfoQuery
-    ScopeMappings = <>
-    Left = 312
-    Top = 8
+    Left = 192
+    Top = 304
   end
 end

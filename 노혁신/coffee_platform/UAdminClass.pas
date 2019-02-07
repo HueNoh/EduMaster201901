@@ -1,6 +1,6 @@
 //
 // Created by the DataSnap proxy generator.
-// 2019-02-01 오전 1:05:28
+// 2019-02-06 오전 2:31:22
 //
 
 unit UAdminClass;
